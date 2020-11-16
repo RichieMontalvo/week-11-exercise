@@ -2,25 +2,25 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
-const FirstScreen = ({ navigation }) => {
+const ItemList = ({ navigation }) => {
 
-  const goToSecond = () => {
-    navigation.navigate('Second');
+  const goToDetails = () => {
+    navigation.navigate('Item Details');
   }
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>
-        First Screen
+        Item List
       </Text>
-      <Button title="Go to Second Screen" 
-              onPress={goToSecond}
+      <Button title="Go to Item Details" 
+              onPress={goToDetails}
       />
       <StatusBar style="auto" />
     </View>
   );
 }
-export default FirstScreen;
+export default ItemList;
 
 const styles = StyleSheet.create({
   container: {
