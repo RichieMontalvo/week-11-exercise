@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect } from 'react';
-import { SafeAreaView, FlatList, StyleSheet, Text, View, Button } from 'react-native';
+import { SafeAreaView, FlatList, StyleSheet, TouchableOpacity, Text, View, Button, Image } from 'react-native';
 
 const ItemList = ({ route, navigation }) => {
 
@@ -15,9 +15,13 @@ const ItemList = ({ route, navigation }) => {
   }
 
   const itemRow = ({ item }) => (
-    <View style={styles.row}>
+    <TouchableOpacity 
+      style={styles.row}
+      onPress={goToDetails}
+    >
+      <Image style={styles.image} source={item.image} />
       <Text style={styles.title}>{item.name}</Text>
-    </View>
+    </TouchableOpacity>
   )
 
   return (
@@ -40,10 +44,18 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
+    marginLeft: 20,
   },
   row: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
     padding: 20,
     borderBottomColor: '#ccc',
     borderBottomWidth: 1,
+  },
+  image: {
+    width: 70,
+    height: 70,
   }
 });
