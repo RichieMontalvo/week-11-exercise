@@ -16,17 +16,17 @@ const ItemList = ({ route, navigation }) => {
 
   const itemRow = ({ item }) => (
     <TouchableOpacity 
-      style={styles.row}
+      style={styles.cell}
       onPress={() => goToDetails(item)}
     >
       <Image style={styles.image} source={item.image} />
-      <Text style={styles.title}>{item.name}</Text>
     </TouchableOpacity>
   )
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.grid}>
       <FlatList 
+      contentContainerStyle={styles.grid}
         data={items}
         renderItem={itemRow}
         keyExtractor={item => item.id}
@@ -42,9 +42,20 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+  grid: {
+    flex: 1,
+    backgroundColor: '#fff',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    flexWrap: 'wrap',
+  },
   title: {
     fontSize: 24,
     marginLeft: 20,
+  },
+  cell: {
+    width: 120,
+    height: 120,
   },
   row: {
     flex: 1,
@@ -55,7 +66,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
   image: {
-    width: 70,
-    height: 70,
+    width: 115,
+    height: 115,
   }
 });

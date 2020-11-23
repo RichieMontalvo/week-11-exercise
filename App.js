@@ -13,6 +13,12 @@ const App = () => {
     {id: 1, name: 'First Item', image: require('./assets/deer-1.jpg')},
     {id: 2, name: 'Second Item', image: require('./assets/deer-2.jpg')},
     {id: 3, name: 'Third Item', image: require('./assets/deer-3.jpg')},
+    {id: 4, name: 'First Item', image: require('./assets/deer-1.jpg')},
+    {id: 5, name: 'Second Item', image: require('./assets/deer-2.jpg')},
+    {id: 6, name: 'Third Item', image: require('./assets/deer-3.jpg')},
+    {id: 7, name: 'First Item', image: require('./assets/deer-1.jpg')},
+    {id: 8, name: 'Second Item', image: require('./assets/deer-2.jpg')},
+    {id: 9, name: 'Third Item', image: require('./assets/deer-3.jpg')},
   ]);
 
   return (
