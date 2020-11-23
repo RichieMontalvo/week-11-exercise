@@ -1,8 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, Image } from 'react-native';
 
-const ItemDetails = ({ navigation }) => {
+const ItemDetails = ({ navigation, route }) => {
+
+  const { name, image } = route.params;
 
   const goToList = () => {
     navigation.navigate('Item List');
@@ -10,8 +12,9 @@ const ItemDetails = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      <Image style={styles.image} source={image} />
       <Text style={styles.title}>
-        Item Details
+        {name}
       </Text>
       <Button title="Go to Item List" 
               onPress={goToList}
@@ -27,10 +30,16 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
   },
   title: {
     fontSize: 36,
     marginBottom: 20,
+  },
+  image: {
+    width: '100%',
+    height: 400,
+    resizeMode: 'cover',
+    marginBottom: 10,
   },
 });

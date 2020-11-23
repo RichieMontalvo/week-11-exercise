@@ -10,14 +10,14 @@ const ItemList = ({ route, navigation }) => {
     console.log(items)
   })
 
-  const goToDetails = () => {
-    navigation.navigate('Item Details');
+  const goToDetails = (item) => {
+    navigation.navigate('Item Details', {name: item.name, image: item.image});
   }
 
   const itemRow = ({ item }) => (
     <TouchableOpacity 
       style={styles.row}
-      onPress={goToDetails}
+      onPress={() => goToDetails(item)}
     >
       <Image style={styles.image} source={item.image} />
       <Text style={styles.title}>{item.name}</Text>
